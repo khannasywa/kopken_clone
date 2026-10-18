@@ -126,90 +126,105 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                     ),
             ),
 
-            Container(
-              height: 72,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border(top: BorderSide(color: Colors.grey.shade200)),
-              ),
-              child: Row(
-                children: [
-                  _navItem(
-                    icon: Icons.home_outlined,
-                    label: 'Beranda',
-                    index: 0,
-                  ),
-                  _navItem(
-                    icon: Icons.favorite_border,
-                    label: 'Menu',
-                    index: 1,
-                  ),
-
-                  // Tombol VIP di tengah
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        setState(() => selectedIndex = 2);
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Transform.translate(
-                            offset: const Offset(0, -8),
-                            child: Container(
-                              width: 52,
-                              height: 52,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: const Color(0xFFE1E1E6),
-                                border: Border.all(
-                                  color: Colors.white,
-                                  width: 3,
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withValues(alpha: 0.12),
-                                    blurRadius: 6,
-                                    offset: const Offset(0, 2),
-                                  ),
-                                ],
-                              ),
-                              child: Icon(
-                                selectedIndex == 2
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color: selectedIndex == 2
-                                    ? kopi
-                                    : Colors.grey.shade600,
-                                size: 27,
-                              ),
-                            ),
-                          ),
-                          Transform.translate(
-                            offset: const Offset(0, -6),
-                            child: Text(
-                              'VIP',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: selectedIndex == 2 ? kopi : Colors.grey,
-                                fontWeight: selectedIndex == 2
-                                    ? FontWeight.bold
-                                    : FontWeight.normal,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 480),
+                child: Container(
+                  height: 72,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border(
+                      top: BorderSide(color: Colors.grey.shade200),
                     ),
                   ),
+                  child: Row(
+                    children: [
+                      _navItem(
+                        icon: Icons.home_outlined,
+                        label: 'Beranda',
+                        index: 0,
+                      ),
+                      _navItem(
+                        icon: Icons.favorite_border,
+                        label: 'Menu',
+                        index: 1,
+                      ),
 
-                  _navItem(
-                    icon: Icons.local_drink_outlined,
-                    label: 'Merch',
-                    index: 3,
+                      // Tombol VIP di tengah
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {
+                            setState(() => selectedIndex = 2);
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Transform.translate(
+                                offset: const Offset(0, -8),
+                                child: Container(
+                                  width: 52,
+                                  height: 52,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: const Color(0xFFE1E1E6),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 3,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withValues(
+                                          alpha: 0.12,
+                                        ),
+                                        blurRadius: 6,
+                                        offset: const Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Icon(
+                                    selectedIndex == 2
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: selectedIndex == 2
+                                        ? kopi
+                                        : Colors.grey.shade600,
+                                    size: 27,
+                                  ),
+                                ),
+                              ),
+                              Transform.translate(
+                                offset: const Offset(0, -6),
+                                child: Text(
+                                  'VIP',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    color: selectedIndex == 2
+                                        ? kopi
+                                        : Colors.grey,
+                                    fontWeight: selectedIndex == 2
+                                        ? FontWeight.bold
+                                        : FontWeight.normal,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      _navItem(
+                        icon: Icons.local_drink_outlined,
+                        label: 'Merch',
+                        index: 3,
+                      ),
+                      _navItem(
+                        icon: Icons.person_outline,
+                        label: 'Saya',
+                        index: 4,
+                      ),
+                    ],
                   ),
-                  _navItem(icon: Icons.person_outline, label: 'Saya', index: 4),
-                ],
+                ),
               ),
             ),
           ],
